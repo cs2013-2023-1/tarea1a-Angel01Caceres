@@ -68,7 +68,7 @@ Matriz2D t(Matriz2D& m){
     // Transpuesta de una matriz
     float** ptr = matriz(m.columnas,m.filas);
     for (int i = 0; i < m.columnas; i++) {
-        for (int j = 0; i < m.filas; i++)
+        for (int j = 0; j < m.filas; j++)
             ptr[i][j] = m.ptr[i][j];
     }
     Matriz2D mt(m.columnas,m.filas,ptr);
