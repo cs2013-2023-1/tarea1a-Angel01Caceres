@@ -1,8 +1,7 @@
 #include "foo.h"
 
 float** matriz(int filas,int columnas) {
-    float ptr**;
-    ptr = new float*[filas];
+    float** ptr = new float*[filas];
     for (int i = 0; i < filas; i++)
         ptr[i] = new float[columnas];
     return ptr;
