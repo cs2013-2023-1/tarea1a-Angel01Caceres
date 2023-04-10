@@ -1,6 +1,6 @@
 #include "foo.h"
 
-void matriz(float** ptr,filas,columnas) {
+void matriz(float** ptr,int filas,int columnas) {
     ptr = new float*[filas]
     for (int i = 0; i < filas; i++)
         ptr[i] = new float[columnas];
