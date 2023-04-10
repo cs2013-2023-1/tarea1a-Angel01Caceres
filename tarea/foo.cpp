@@ -61,7 +61,6 @@ Matriz2D::Matriz2D(int filas,int columnas,float** ptr){
     this->filas = filas;
     this->columnas = columnas;
     this->ptr = ptr;
-    ptr = nullptr;
 }
 
 Matriz2D t(Matriz2D& m){
@@ -88,8 +87,8 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
     float** ptr = matriz(m1.filas,m1.columnas);
-    for (int i = 0; i < m2.filas; i++) {
-        for (int j = 0; j < m2.columnas; j++)
+    for (int i = 0; i < m1.filas; i++) {
+        for (int j = 0; j < m1.columnas; j++)
             ptr[i][j] = m1.ptr[i][j] + m2.ptr[i][j];
     }
     Matriz2D ms(m1.filas,m2.columnas,ptr);
@@ -99,8 +98,8 @@ Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador -
     float** ptr = matriz(m1.filas,m1.columnas);
-    for (int i = 0; i < m2.filas; i++) {
-        for (int j = 0; j < m2.columnas; j++)
+    for (int i = 0; i < m1.filas; i++) {
+        for (int j = 0; j < m1.columnas; j++)
             ptr[i][j] = m1.ptr[i][j] - m2.ptr[i][j];
     }
     Matriz2D mr(m2.filas,m1.columnas,ptr);
@@ -113,7 +112,7 @@ Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
     for (int i = 0; i < m1.filas; i++) {
         for (int j = 0; j < m2.columnas; j++) { 
             ptr[i][j] = 0;
-            for (int k = 0; k < m2.filas; k++)
+            for (int k = 0; k < m1.columnas; k++)
                 ptr[i][j] += m1.ptr[i][k] * m2.ptr[k][j]; 
         }
     }
