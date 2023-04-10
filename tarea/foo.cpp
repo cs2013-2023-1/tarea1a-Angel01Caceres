@@ -43,7 +43,7 @@ Matriz2D::Matriz2D(const Matriz2D& m){
     this->columnas = m.columnas;
     ptr = matriz(filas,columnas);
     for (int i = 0; i < filas; i++) {
-        for (int j = 0; i < columnas; i++)
+        for (int j = 0; j < columnas; j++)
             ptr[i][j] = m.ptr[i][j];
     }
 }
