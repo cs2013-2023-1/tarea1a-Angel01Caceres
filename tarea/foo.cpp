@@ -81,30 +81,82 @@ std::ostream& operator<<(std::ostream& os, const Matriz2D& m){
 
 Matriz2D operator+(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador +
+    float** ptr = matriz(m1.filas,m1.columnas);
+    for (int i = 0; i < m2.filas; i++) {
+        for (int j = 0; j < m2.columnas; j++)
+            ptr[i][j] = m1.ptr[i][j] + m2.ptr[i][j];
+    }
+    Matriz2D ms(m1.filas,m2.columnas,ptr);
+    return ms;
 }
 
 Matriz2D operator-(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador -
+    float** ptr = matriz(m1.filas,m1.columnas);
+    for (int i = 0; i < m2.filas; i++) {
+        for (int j = 0; j < m2.columnas; j++)
+            ptr[i][j] = m1.ptr[i][j] - m2.ptr[i][j];
+    }
+    Matriz2D mr(m2.filas,m1.columnas,ptr);
+    return mr;
 }
 
 Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
     // Sobrecarga del operador *
+    float** ptr = matriz(m1.filas,m2.columnas);
+    for (int i = 0; i < m1.filas; i++) {
+        for (int j = 0; j < m2.columnas; j++) { 
+            ptr[i][j] = 0;
+            for (int k = 0; k < m2.filas; k++)
+                ptr[i][j] += m1.ptr[i][k] * m2.ptr[k][j]; 
+        }
+    }
+    Matriz2D mm(m1.filas,m2.columnas,ptr);
+    return mm;
 }
 
 Matriz2D operator+(const Matriz2D& m, float n){
     // Sobrecarga del operador +
+    float** ptr = matriz(m.filas,m.columnas);
+    for (int i = 0; i < m.filas; i++) {
+        for (int j = 0; j < m.columnas; j++)
+            ptr[i][j] = m.ptr[i][j] + n;
+    }
+    Matriz2D mse(m.filas,m.columnas,ptr);
+    return mse;
 }
 
 Matriz2D operator-(const Matriz2D& m, float n){
     // Sobrecarga del operador -
+    float** ptr = matriz(m.filas,m.columnas);
+    for (int i = 0; i < m.filas; i++) {
+        for (int j = 0; j < m.columnas; j++)
+            ptr[i][j] = m.ptr[i][j] - n;
+    }
+    Matriz2D mre(m.filas,m.columnas,ptr);
+    return mre;
 }
 
 Matriz2D operator*(const Matriz2D& m, float n){
     // Sobrecarga del operador *
+    float** ptr = matriz(m.filas,m.columnas);
+    for (int i = 0; i < m.filas; i++) {
+        for (int j = 0; j < m.columnas; j++)
+            ptr[i][j] = m.ptr[i][j] * n;
+    }
+    Matriz2D mme(m.filas,m.columnas,ptr);
+    return mme;
 }
 
 Matriz2D operator/(const Matriz2D& m, float n){
     // Sobrecarga del operador /
+    float** ptr = matriz(m.filas,m.columnas);
+    for (int i = 0; i < m.filas; i++) {
+        for (int j = 0; j < m.columnas; j++)
+            ptr[i][j] = m.ptr[i][j] / n;
+    }
+    Matriz2D mde(m.filas,m.columnas,ptr);
+    return mde;
 }
 
 float Matriz2D::get(int i, int j){
