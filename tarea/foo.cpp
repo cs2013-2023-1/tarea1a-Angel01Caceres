@@ -59,15 +59,15 @@ Matriz2D::Matriz2D(Matriz2D&& m){
 Matriz2D t(Matriz2D& m){
     // Transpuesta de una matriz
     float** ptr1 = m.ptr;
+    float cantidad;
     m.ptr = nullptr;
-    m.ptr = matriz(m.columnas,m.filas);
-    for (int i = 0; i < m.columnas; i++) {
-        for (int j = 0; i < m.filas; i++)
-            m.ptr[i][j] = ptr1[i][j];
-    }
-    float cantidad = m.filas;
+    cantidad = m.filas;
     m.filas = m.columnas;
     m.columnas = cantidad;
+    m.ptr = matriz(m.filas,m.columnas);
+    for (int i = 0; i < m.filas; i++)  
+       { for (int j = 0; i < m.columnas; i++)
+            m.ptr[i][j] = ptr1[i][j]; }
     Matriz2D m1 = move(m);
     m.ptr = ptr1;
     ptr1 = nullptr;
