@@ -13,7 +13,7 @@ Matriz2D::Matriz2D(){
     ptr = matriz(filas,columnas);
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++)
-            ptr[i][j] = (rand() % 100)/100;
+            ptr[i][j] = 1.0 * (rand() % 100) / 100;;
     }
 }
 
@@ -23,7 +23,7 @@ Matriz2D::Matriz2D(int n) {
     ptr = matriz(filas,columnas);
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++)
-            ptr[i][j] = (rand() % 100)/100;
+            ptr[i][j] = 1.0 * (rand() % 100) / 100;;
     }
 }
 
@@ -33,7 +33,7 @@ Matriz2D::Matriz2D(int n, int m) {
     ptr = matriz(filas,columnas);
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++)
-            ptr[i][j] = (rand() % 100)/100;
+            ptr[i][j] = 1.0 * (rand() % 100) / 100;;
     }
 }
 
@@ -116,7 +116,7 @@ Matriz2D operator*(const Matriz2D& m1, const Matriz2D& m2){
                 ptr[i][j] += m1.ptr[i][k] * m2.ptr[k][j]; 
         }
     }
-    Matriz2D mm(m1.filas,m2.columnas,ptr);
+    Matriz2D mm(m1.filas,7,ptr);
     return mm;
 }
 
