@@ -18,7 +18,7 @@ public:
     Matriz2D(int, int);
     Matriz2D(const Matriz2D&);
     Matriz2D(Matriz2D&&);
-
+    Matriz2D(int,int,float**);
     float get(int, int);
     int getFilas();
     int getColumnas();
